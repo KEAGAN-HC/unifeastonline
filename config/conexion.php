@@ -1,7 +1,7 @@
 <?php
 $host = "unifeast.mysql.database.azure.com";
 $user = "ryanhers11yh";
-$clave = "APOLLo01?";
+$clave = "Apollo01";
 $bd = "card";
 
 // Inicializa la conexión
