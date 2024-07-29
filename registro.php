@@ -44,9 +44,9 @@ session_start();
                 }
 
                 if (empty($errores)) {
-                    $servername = "localhost";
-                    $db_username = "root";
-                    $db_password = "";
+                    $servername = "unifeast.mysql.database.azure.com";
+                    $db_username = "ryanhers11yh";
+                    $db_password = "Apollo01";
                     $dbname = "card";
 
                     $conn = new mysqli($servername, $db_username, $db_password, $dbname);
