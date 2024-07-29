@@ -18,11 +18,3 @@ mysqli_select_db($conexion, $bd) or die("No se encuentra la base de datos");
 
 // Establece el conjunto de caracteres
 mysqli_set_charset($conexion, "utf8");
-
-echo "Conexión exitosa a la base de datos";
-
-// Tu código adicional para interactuar con la base de datos va aquí
-
-// Cierra la conexión
-mysqli_close($conexion);
-?>
