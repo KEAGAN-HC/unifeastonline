@@ -14,9 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($errores)) {
         // Conexión a la base de datos
-        $servername = "localhost";
-        $db_username = "root";
-        $db_password = "";
+        $servername = "unifeast.mysql.database.azure.com";
+        $db_username = "ryanhers11yh";
+        $db_password = "Apollo01";
         $dbname = "card";
 
         $conn = new mysqli($servername, $db_username, $db_password, $dbname);
