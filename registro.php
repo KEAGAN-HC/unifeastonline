@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+require_once "config/conexion.php";
+
 ?>
 
 <!DOCTYPE html>
