@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -58,15 +57,18 @@ session_start();
 
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-                    $sql = "INSERT INTO clientes (nombre, correo, matricula, username, password) VALUES ('$nombre', '$correo', '$matricula', '$username', '$hashed_password')";
+                    $sql = "INSERT INTO clientes (nombre, correo, matricula, username, password) VALUES (?, ?, ?, ?, ?)";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("sssss", $nombre, $correo, $matricula, $username, $hashed_password);
 
-                    if ($conn->query($sql) === TRUE) {
+                    if ($stmt->execute()) {
                         echo "<p>Registro exitoso. Redirigiendo al <a href='index.php'>inicio</a>.</p>";
                         header("refresh:3;url=index.php");
                     } else {
-                        echo "<p>Error: " . $sql . "<br>" . $conn->error . "</p>";
+                        echo "<p>Error: " . $stmt->error . "</p>";
                     }
 
+                    $stmt->close();
                     $conn->close();
                 } else {
                     foreach ($errores as $error) {
@@ -83,8 +85,8 @@ session_start();
                 <label for="correo">Correo Electrónico:</label>
                 <input type="email" id="correo" name="correo" required>
 
-                <label for="username">Confirmar correo:</label>
-                <input type="email" id="username" name="username" required>
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" id="username" name="username" required>
 
                 <label for="matricula">Matrícula:</label>
                 <input type="text" id="matricula" name="matricula" required>
